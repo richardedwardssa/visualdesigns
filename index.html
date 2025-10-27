@@ -77,7 +77,7 @@
                     Innovative DesignOps Manager with over 20 years of experience in UX, design systems, and operational excellence. Proven success in scaling design operations, aligning cross-functional teams, and implementing systems that elevate design quality and efficiency across enterprise software products. Skilled in governance, AI-integrated workflows, and leading design transformation within large organisations.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#portfolio" class="btn btn-lg btn-white text-primary">View My Work</a>
+                    <a href="#dsportfolio" class="btn btn-lg btn-white text-primary">View My Work</a>
                     <a href="#contact" class="btn btn-lg btn-outline btn-white text-white border-white" onmouseover="this.style.backgroundColor='#30007C'" onmouseout="this.style.backgroundColor='transparent'">Let's Connect</a>
                 </div>
             </div>
@@ -523,8 +523,20 @@
                         </div>
                     </div>
                 </div>
-
-            </section>
+                <div class="space-y-4">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Design System Examples</h3>
+                        <p class="text-base-content/80 max-w-6xl mx-auto">POC dashboard demonstrating light and dark mode design system components.</p>
+                    </div>
+                    <div class="group">
+                        <div class="w-full rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/light-dark.png" alt="Button types and states - Design System Components showing primary, secondary, tertiary, ghost, and destructive button variants in default, hover, focused, and disabled states" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
 
             <!-- UX Design Portfolio Section with different background -->
             <section id="uxportfolio" class="py-20 bg-base-100">
@@ -549,9 +561,21 @@
                         </div>
                     </div>
                         </div>
-                        
-                        <!-- Portfolio Image 9 -->
+                    <div class="w-full max-w-[960px] mx-auto space-y-12">
+                        <!-- Portfolio Image 8 -->
                         <div class="space-y-4">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Expense Dashboard</h3>
+                        <p class="text-base-content/80 max-w-6xl mx-auto">Redesigned the Expense Dashboard for better data visualization and user experience.</p>
+                    </div>
+                    <div class="group">
+                        <div class="w-full rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/expense.png" alt="Button types and states - Design System Components showing primary, secondary, tertiary, ghost, and destructive button variants in default, hover, focused, and disabled states" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                    </div>
+                        </div>                        
+                        <!-- Portfolio Image 9 -->
+                    <div class="space-y-4">
                     <div class="text-center">
                         <h3 class="text-2xl font-bold mb-2">Username & Password</h3>
                         <p class="text-base-content/80 max-w-6xl mx-auto">This was a complex problem to solve, not all our users have access to email so we needed a way to create accounts using a username and password.</p>
@@ -562,9 +586,20 @@
                         </div>
                     </div>
                         </div>
+                    <div class="space-y-4">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">New member UI</h3>
+                        <p class="text-base-content/80 max-w-6xl mx-auto">Designed the new members page modernising and improving user experience.</p>
+                    </div>
+                    <div class="group">
+                        <div class="w-full rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/Members.png" alt="Button types and states - Design System Components showing primary, secondary, tertiary, ghost, and destructive button variants in default, hover, focused, and disabled states" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                    </div>
+                        </div>                        
                         
                         <!-- Portfolio Image 10 -->
-                        <div class="space-y-4">
+                    <div class="space-y-4">
                     <div class="text-center">
                         <h3 class="text-2xl font-bold mb-2">Salary Extras</h3>
                         <p class="text-base-content/80 max-w-6xl mx-auto">New design for Salary Extras, enhancing user navigation, accessibility and user experience.</p>
@@ -575,6 +610,18 @@
                         </div>
                     </div>
                         </div>
+                        <!-- Portfolio Image 11 -->
+                    <div class="space-y-4">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Team UX design KPI Dashboard - Built with AI (30 min)</h3>
+                        <p class="text-base-content/80 max-w-6xl mx-auto">Leveraged Claude to develop a comprehensive prompt for constructing a Team UX design dashboard tailored to KPI requirements. The dashboard effectively visualizes key performance metrics and actionable insights while adhering to the prescribed design system standards. Through iterative prompting, Claude successfully generated a production-ready proof of concept in approximately 30 minutes, demonstrating the efficiency of AI-assisted design workflows.</p>
+                    </div>
+                    <div class="group">
+                        <div class="w-full rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/ux-kpi-dashboard.png" alt="Button types and states - Design System Components showing primary, secondary, tertiary, ghost, and destructive button variants in default, hover, focused, and disabled states" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                    </div>
+                        </div>                        
                     </div>
                 </div>
             </section>
@@ -689,11 +736,8 @@
             });
         });
 
-        // Simple form submission handler (placeholder)
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thanks for your message! This is just a demo form. In a real site, this would send your message.');
-        });
+        // Form submission handler would go here if there was a contact form
+        // Currently no form exists in the document
 
         // Add some interactive hover effects
         document.querySelectorAll('.card').forEach(card => {
