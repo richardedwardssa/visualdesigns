@@ -16,8 +16,128 @@
     
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-bg { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
         .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+        
+        /* Custom animations */
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+        
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(15px) rotate(-90deg); }
+            66% { transform: translateY(-25px) rotate(-180deg); }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Animation classes */
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .animate-fade-in-scale {
+            animation: fadeInScale 1.2s ease-out;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-float-reverse {
+            animation: floatReverse 8s ease-in-out infinite;
+        }
+        
+        .animate-sparkle {
+            animation: sparkle 4s ease-in-out infinite;
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 1s ease-out 0.3s both;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 1s ease-out 0.6s both;
+        }
+        
+        .stagger-1 { animation-delay: 0.2s; }
+        .stagger-2 { animation-delay: 0.4s; }
+        .stagger-3 { animation-delay: 0.6s; }
+        .stagger-4 { animation-delay: 0.8s; }
+        .stagger-5 { animation-delay: 1s; }
+        
+        /* Enhanced button hover effects */
+        .btn-enhanced:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-element {
+            transition: all 0.3s ease;
+        }
+        
+        .floating-element:hover {
+            transform: scale(1.1) !important;
+        }
     </style>
 </head>
 <body class="bg-base-100">
@@ -62,31 +182,41 @@
         <div class="hero-overlay bg-opacity-20"></div>
         <div class="hero-content text-center text-white z-10">
             <div class="max-w-4xl">
-                <div class="avatar mb-8">
+                <div class="avatar mb-8 animate-fade-in-scale">
                     <div class="w-32 rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
                         <img src="images/rich-edwards.png" alt="Rich Edwards - DesignOps Manager" />
                     </div>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up stagger-1">
                     Richard Edwards
                 </h1>
-                <p class="text-xl md:text-2xl mb-4 font-light">
+                <p class="text-xl md:text-2xl mb-4 font-light animate-fade-in-up stagger-2">
                     DesignOps Manager | UX & Design Systems Leader
                 </p>
-                <p class="text-lg mb-8 max-w-3xl mx-auto opacity-90">
+                <p class="text-lg mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in-up stagger-3">
                     Innovative DesignOps Manager with over 20 years of experience in UX, design systems, and operational excellence. Proven success in scaling design operations, aligning cross-functional teams, and implementing systems that elevate design quality and efficiency across enterprise software products. Skilled in governance, AI-integrated workflows, and leading design transformation within large organisations.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#dsportfolio" class="btn btn-lg btn-white text-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-lg btn-outline btn-white text-white border-white" onmouseover="this.style.backgroundColor='#30007C'" onmouseout="this.style.backgroundColor='transparent'">Let's Connect</a>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up stagger-4">
+                    <a href="#dsportfolio" class="btn btn-lg btn-white text-primary btn-enhanced">View My Work</a>
+                    <a href="#contact" class="btn btn-lg btn-outline btn-white text-white border-white btn-enhanced" onmouseover="this.style.backgroundColor='#30007C'" onmouseout="this.style.backgroundColor='transparent'">Let's Connect</a>
                 </div>
             </div>
         </div>
         
-        <!-- Floating elements for visual interest -->
-        <div class="absolute top-20 left-10 w-20 h-20 bg-white bg-opacity-10 rounded-full animate-pulse"></div>
-        <div class="absolute bottom-32 right-16 w-16 h-16 bg-white bg-opacity-10 rounded-full animate-bounce"></div>
-        <div class="absolute top-1/2 right-10 w-12 h-12 bg-white bg-opacity-10 rounded-full animate-ping"></div>
+        <!-- Enhanced floating elements for visual interest -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white bg-opacity-10 rounded-full animate-float floating-element"></div>
+        <div class="absolute bottom-32 right-16 w-16 h-16 bg-white bg-opacity-15 rounded-full animate-float-reverse floating-element"></div>
+        <div class="absolute top-1/2 right-10 w-12 h-12 bg-white bg-opacity-20 rounded-full animate-sparkle floating-element"></div>
+        
+        <!-- Additional floating elements -->
+        <div class="absolute top-1/3 left-1/4 w-8 h-8 bg-white bg-opacity-10 rounded-full animate-float floating-element" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-14 h-14 bg-white bg-opacity-8 rounded-full animate-sparkle floating-element" style="animation-delay: 2s;"></div>
+        <div class="absolute top-3/4 right-1/4 w-10 h-10 bg-white bg-opacity-12 rounded-full animate-float-reverse floating-element" style="animation-delay: 0.5s;"></div>
+        <div class="absolute top-1/4 right-1/3 w-6 h-6 bg-white bg-opacity-15 rounded-full animate-sparkle floating-element" style="animation-delay: 3s;"></div>
+        
+        <!-- Animated particles -->
+        <div class="absolute top-10 right-20 w-4 h-4 bg-white bg-opacity-20 rounded-full animate-ping floating-element" style="animation-delay: 1.5s;"></div>
+        <div class="absolute bottom-20 left-20 w-3 h-3 bg-white bg-opacity-25 rounded-full animate-pulse floating-element" style="animation-delay: 2.5s;"></div>
     </section>
 
     <!-- About Section -->
@@ -553,7 +683,7 @@
                         <div class="space-y-4">
                     <div class="text-center">
                         <h3 class="text-2xl font-bold mb-2">People HR Smart Menu</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">A smart menu design for People HR, enhancing user navigation and accessibility.</p>
+                        <p class="text-base-content/80 max-w-6xl mx-auto">New smart menu design for People HR, giving the ability to quickly surface information from the menu rather than drilling down deep into the application, improving overall user experience.</p>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
@@ -575,21 +705,11 @@
                     </div>
                         </div>                        
                         <!-- Portfolio Image 9 -->
+
                     <div class="space-y-4">
                     <div class="text-center">
-                        <h3 class="text-2xl font-bold mb-2">Username & Password</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">This was a complex problem to solve, not all our users have access to email so we needed a way to create accounts using a username and password.</p>
-                    </div>
-                    <div class="group">
-                        <div class="w-full rounded-xl overflow-hidden shadow-lg">
-                            <img src="images/username-password.png" alt="Button types and states - Design System Components showing primary, secondary, tertiary, ghost, and destructive button variants in default, hover, focused, and disabled states" class="w-full h-full object-cover" loading="lazy" />
-                        </div>
-                    </div>
-                        </div>
-                    <div class="space-y-4">
-                    <div class="text-center">
-                        <h3 class="text-2xl font-bold mb-2">New member UI</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">Designed the new members page modernising and improving user experience.</p>
+                        <h3 class="text-2xl font-bold mb-2">New Members Dashboard </h3>
+                        <p class="text-base-content/80 max-w-6xl mx-auto">Our members dashboard was looking out of date so I redesigned the dashboard modernising and improving user experience and accessibility.</p>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
@@ -610,6 +730,17 @@
                         </div>
                     </div>
                         </div>
+                    <div class="space-y-4">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-2">Username & Password</h3>
+                        <p class="text-base-content/80 max-w-6xl mx-auto">This was a complex problem to solve, not all our users have access to email so we needed a way to create accounts using a username and password handled by administrators.</p>
+                    </div>
+                    <div class="group">
+                        <div class="w-full rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/username-password.png" alt="Button types and states - Design System Components showing primary, secondary, tertiary, ghost, and destructive button variants in default, hover, focused, and disabled states" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                    </div>
+                        </div>                        
                         <!-- Portfolio Image 11 -->
                     <div class="space-y-4">
                     <div class="text-center">
