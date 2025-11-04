@@ -36,20 +36,27 @@ try {
         Write-Host "$(Get-Date -Format 'HH:mm:ss') - Request: $requestedPath" -ForegroundColor Gray
         
         if (Test-Path $filePath -PathType Leaf) {
-            # File exists, serve it
-            $content = Get-Content $filePath -Raw -Encoding UTF8
-            $buffer = [System.Text.Encoding]::UTF8.GetBytes($content)
-            
             # Set content type based on file extension
             $extension = [System.IO.Path]::GetExtension($filePath).ToLower()
             switch ($extension) {
                 ".html" { 
                     $response.ContentType = "text/html; charset=utf-8"
                     $content = Get-Content $filePath -Raw -Encoding UTF8
+                    if ($content -eq $null) { $content = "" }
                     $buffer = [System.Text.Encoding]::UTF8.GetBytes($content)
                 }
-                ".css"  { $response.ContentType = "text/css" }
-                ".js"   { $response.ContentType = "application/javascript" }
+                ".css"  { 
+                    $response.ContentType = "text/css"
+                    $content = Get-Content $filePath -Raw -Encoding UTF8
+                    if ($content -eq $null) { $content = "" }
+                    $buffer = [System.Text.Encoding]::UTF8.GetBytes($content)
+                }
+                ".js"   { 
+                    $response.ContentType = "application/javascript"
+                    $content = Get-Content $filePath -Raw -Encoding UTF8
+                    if ($content -eq $null) { $content = "" }
+                    $buffer = [System.Text.Encoding]::UTF8.GetBytes($content)
+                }
                 ".png"  { 
                     $response.ContentType = "image/png"
                     $buffer = [System.IO.File]::ReadAllBytes($filePath)
@@ -64,7 +71,12 @@ try {
                 }
                 ".gif"  { $response.ContentType = "image/gif" }
                 ".svg"  { $response.ContentType = "image/svg+xml" }
-                default { $response.ContentType = "text/plain" }
+                default { 
+                    $response.ContentType = "text/plain"
+                    $content = Get-Content $filePath -Raw -Encoding UTF8
+                    if ($content -eq $null) { $content = "" }
+                    $buffer = [System.Text.Encoding]::UTF8.GetBytes($content)
+                }
             }
             
             $response.ContentLength64 = $buffer.Length
