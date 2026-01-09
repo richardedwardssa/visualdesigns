@@ -22,7 +22,12 @@
     <style>
         /* Base styles */
         body { 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Inter', sans-serif;
+            color: #242424;
+        }
+        
+        p, li, h1, h2, h3, h4, h5, h6, a, span {
+            color: #242424;
         }
         
         /* Background effects */
@@ -98,18 +103,14 @@
             <a href="index.html#contact" class="btn" style="background-color: #4b2f75; color: white; border-color: #4c1d95;" onmouseover="this.style.backgroundColor='#30007C'" onmouseout="this.style.backgroundColor='#4c1d95'">Get In Touch</a>
         </div>
     </div>
-        <div class="navbar-end">
-            <a href="index.html#contact" class="btn" style="background-color: #4b2f75; color: white; border-color: #4c1d95;" onmouseover="this.style.backgroundColor='#30007C'" onmouseout="this.style.backgroundColor='#4c1d95'">Get In Touch</a>
-        </div>
-    </div>
 
     <!-- Header Section -->
     <section class="pt-32 pb-20 bg-base-100">
-        <div class="max-w-6xl mx-auto px-4">
+        <div class="w-full max-w-[960px] mx-auto px-4">
             <div class="text-center mb-12">
                 <h1 class="text-4xl font-bold mb-4">UX Design Portfolio</h1>
-                <p class="text-lg text-base-content/80 max-w-6xl mx-auto">
-                    Visual examples of my work across UX design projects, user research, and usability testing
+                <p class="text-lg text-base-content/80">
+                    Visual examples of my work across end-to-end UX projects, including complex systems architecture, accessible redesigns, and AI-assisted workflows. My approach integrates rigorous user research, interactive prototyping, and cross-functional stakeholder management.
                 </p>
             </div>
             
@@ -117,22 +118,116 @@
                 <!-- Portfolio content from your main page's UX Design section -->
                 <!-- People HR Smart Menu -->
                 <div class="space-y-4">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="text-2xl font-bold mb-2">People HR Smart Menu</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">New smart menu design for People HR, giving the ability to quickly surface information from the menu rather than drilling down deep into the application, improving overall user experience.</p>
+                        <div class="text-base-content/80 max-w-6xl mx-auto space-y-6">
+                            <div class="text-left space-y-4">
+                                <h4 class="text-lg font-semibold">Project Overview</h4>
+                                <p>Redefining navigation from a passive list to an active intelligence tool.</p>
+                                
+                                <p>The legacy navigation for People HR required users to drill down through multiple clicks to find basic information or perform routine tasks. My goal was to reduce time-to-value by creating a "Smart Menu"—a navigation system that surfaces critical data and actions at the top level, eliminating the need for deep diving into the application.</p>
+                                
+                                <h4 class="text-lg font-semibold">The Challenge: Information Interaction Cost</h4>
+                                <p>User research indicated that simple queries (e.g., "How much annual leave do I have left?") required significant interaction cost: clicking into a module, waiting for a page load, and scanning a dashboard. The navigation acted solely as a map, rather than a tool.</p>
+                                
+                                <h4 class="text-lg font-semibold">The Solution: "Surface, Don't Dig"</h4>
+                                <p>I designed a hover-activated Smart Menu that uses progressive disclosure to reveal high-priority information instantly.</p>
+                                
+                                <h4 class="text-lg font-semibold">Key UX Features:</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Data Exposure over Deep Linking:</strong> Instead of simply linking to the "Annual Leave" page, the Smart Menu queries the user's database to display their actual remaining balance and upcoming booking dates directly in the flyout. This changes the interaction from Navigational (going somewhere) to Informational (learning something).</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Quick Actions & "One-Click" logic:</strong> Users can initiate frequent workflows—such as "Request Leave" or "Add New Starter"—directly from the menu panel. This reduced the user journey for common tasks from four clicks to one.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Contextual Sub-Navigation:</strong> The menu organises deep links (Settings, Entitlements, History) alongside the data, ensuring that if the user does need to dig deeper, the relevant pathways are immediately accessible without cluttering the primary interface.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Visual Hierarchy & Scannability:</strong> Used clear iconography and a split-panel layout to differentiate between "My Stats" (personal data) and "Management" (team actions), reducing cognitive load for admin users who switch contexts frequently.</p>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-lg font-semibold">The Outcome</h4>
+                                <p>The new Smart Menu successfully transformed the navigation bar from a static directory into a dynamic utility. By bringing data to the surface layer, we significantly improved the overall user experience, reducing time-on-task for high-frequency interactions and streamlining user behaviour across the platform.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
                             <img src="images/peoplehr-smartmenu.png" alt="People HR Smart Menu Design" class="w-full h-full object-cover" loading="lazy" />
                         </div>
                     </div>
-                </div>
-
+                </div>                
                 <!-- Expense Dashboard -->
                 <div class="space-y-4">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="text-2xl font-bold mb-2">Expense Dashboard</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">Redesigned the Expense Dashboard for better data visualization and user experience.</p>
+                        <div class="text-base-content/80 max-w-6xl mx-auto space-y-6">
+                            <div class="text-left space-y-4">
+                                <h4 class="text-lg font-semibold">Project Overview</h4>
+                                <p>Transforming a legacy administrative burden into a high-performance, accessible financial tool.</p>
+                                
+                                <p>The goal of this project was to overhaul a clunky, outdated expense system that was causing significant friction for employees and finance teams alike. By applying a user-centred design approach, I transformed the tool into a streamlined, WCAG-compliant platform that prioritises visibility, speed, and ease of use.</p>
+                                
+                                <h4 class="text-lg font-semibold">Discovery & Insights: Moving from Assumptions to Data</h4>
+                                <p>To understand the friction points of the legacy system, I conducted focus groups and 1:1 interviews with both general users and finance administrators.</p>
+                                <div class="space-y-2">
+                                    <p><strong>Key Findings:</strong></p>
+                                    <div class="space-y-2">
+                                        <div>
+                                            <p><strong>Lack of Transparency:</strong> Users felt "lost" regarding their claim status, leading to frequent manual enquiries to the finance department.</p>
+                                        </div>
+                                        <div>
+                                            <p><strong>Frictional Uploads:</strong> The manual receipt upload process was slow and prone to errors, causing frustration during high-volume submissions.</p>
+                                        </div>
+                                        <div>
+                                            <p><strong>Accessibility Gaps:</strong> The original interface failed to meet modern accessibility standards, excluding users with diverse needs.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-lg font-semibold">Iterative Design Process: Validating the Journey</h4>
+                                <p>I employed a rigorous iterative process to ensure the solution was grounded in user needs before moving to development.</p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Low-Fidelity Wireframing:</strong> Built structural frameworks to validate the new layout and logic flow early, ensuring the information architecture was sound.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>High-Fidelity Prototyping:</strong> Developed interactive prototypes to stress-test the "Submit Expense" journey, specifically refining the drag-and-drop receipt feature to ensure it felt intuitive and responsive.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>The "Status-at-a-Glance" Header:</strong> Introduced a persistent header and inline expansion for claim details. This minimised page navigation and reduced cognitive load by keeping users in context.</p>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-lg font-semibold">Development & Execution: Bridging the Gap</h4>
+                                <p>As the lead designer, I acted as the primary link between business requirements and technical implementation.</p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Stakeholder Management:</strong> Navigated complex requirements from Finance and HR, ensuring the interface remained user-friendly while maintaining the rigorous data accuracy required for financial auditing.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Technical Handover:</strong> Provided a comprehensive design system and worked side-by-side with engineers during the build phase to ensure the final product was pixel-perfect and functionally sound.</p>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-lg font-semibold">The Outcome: Turning Tedious into Efficient</h4>
+                                <p>The launch of the modernised platform resulted in a significant shift in how employees interacted with company finances.</p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Streamlined Submission:</strong> A new modal-based workflow simplified a complex process into a few logical steps, significantly reducing time-on-task.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Enhanced Clarity:</strong> High-contrast UI and clear status badges (Pending, Approved, Rejected) provided immediate transparency, reducing "status-check" enquiries by nearly 40%.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Inclusive Design:</strong> By adhering to WCAG standards, we delivered a platform that is accessible to all employees, turning a formerly tedious task into a quick, efficient, and inclusive process.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
@@ -143,9 +238,43 @@
 
                 <!-- Members Dashboard -->
                 <div class="space-y-4">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="text-2xl font-bold mb-2">New Members Dashboard</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">Our members dashboard was looking out of date so I redesigned the dashboard modernising and improving user experience and accessibility.</p>
+                        <div class="text-base-content/80 max-w-6xl mx-auto space-y-6">
+                            <div class="text-left space-y-4">
+                                <h4 class="text-lg font-semibold">Project Overview</h4>
+                                <p>Transforming a legacy directory into a modern, accessible hub for employee discovery.</p>
+                                
+                                <p>I redesigned the Members Dashboard to provide all employees with a clean, intuitive way to find and connect with colleagues. The goal was to modernise the UI, ensure full WCAG accessibility, and surface critical professional data—such as reporting lines and office locations—without the need for deep-diving into individual profiles.</p>
+                                
+                                <h4 class="text-lg font-semibold">The Challenge</h4>
+                                <p>The original dashboard was visually dated and functionally siloed. Key information was buried, and the interface lacked the accessibility required for a diverse, modern workforce, leading to high interaction costs for simple employee searches.</p>
+                                
+                                <h4 class="text-lg font-semibold">The Solution: "Information at a Glance"</h4>
+                                <p>I implemented a comprehensive UX workflow—from user testing and Figma prototyping to stakeholder management and QA—to deliver a streamlined directory.</p>
+                                
+                                <h4 class="text-lg font-semibold">Key UX Features:</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Advanced Search & Filtering:</strong> Positioned a persistent search bar with integrated filters directly above the member list. This allows users to instantly narrow down results by department, location, or role, significantly reducing discovery time.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Contextual Detail View:</strong> Surfaced essential data (Job Title, Office, Division, and Employee Number) in a clean, organised layout, reducing the clicks required to identify colleagues.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Hierarchical Clarity:</strong> Introduced a visual "Reports To" feature to provide an instant understanding of organisational structure.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>WCAG Compliance:</strong> Re-engineered the UI with high-contrast elements and screen-reader support, ensuring an inclusive experience for every employee.</p>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-lg font-semibold">Execution & Result</h4>
+                                <p><strong>Bridge to Development:</strong> Provided pixel-perfect specifications and worked closely with engineers through to the final QA phase to ensure functional integrity.</p>
+                                
+                                <p><strong>Outcome:</strong> Successfully launched a modernised, accessible platform that simplified cross-company connection and significantly improved navigational efficiency across the organisation.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
@@ -155,9 +284,40 @@
                 </div>
                 <!-- Username & Password -->
                     <div class="space-y-4">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="text-2xl font-bold mb-2">Username & Password</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">This was a complex problem to solve, not all our users have access to email so we needed a way to create accounts using a username and password handled by administrators.</p>
+                        <div class="text-base-content/80 max-w-6xl mx-auto space-y-6">
+                            <div class="text-left space-y-4">
+                                <h4 class="text-lg font-semibold">Project Overview</h4>
+                                <p>Achieving 100% platform access through a flexible, admin-led login system.</p>
+                                
+                                <p>To solve for users without corporate email addresses, I designed a hybrid authentication system. This allowed Company Administrators to provision accounts using either traditional email invites or bespoke "Username and Password" credentials, ensuring every employee could access the platform securely.</p>
+                                
+                                <h4 class="text-lg font-semibold">The Challenge</h4>
+                                <p>The legacy architecture was hardcoded for email verification. I had to design a secure, manual provisioning workflow for administrators that adhered strictly to existing UI patterns and technical constraints while maintaining a centralised security model.</p>
+                                
+                                <h4 class="text-lg font-semibold">The Solution</h4>
+                                <p>Collaborating closely with the System Architect, I developed a logic-heavy solution that integrated into the legacy framework without compromising security.</p>
+                                
+                                <h4 class="text-lg font-semibold">Key UX Features:</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Admin-Only Provisioning:</strong> A secure interface allowing administrators to choose the appropriate authentication method (Email vs. Username) for each user.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Unified Login Layer:</strong> A seamless entry point that automatically identifies account types, ensuring zero friction for employees regardless of how their account was created.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Proactive Validation:</strong> Robust inline validation for admins to prevent duplicate usernames and enforce password strength at the point of creation.</p>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-lg font-semibold">Execution & Result</h4>
+                                <p><strong>Full UX Lifecycle:</strong> Led the project from user testing and Figma prototyping through to architectural mapping and final QA.</p>
+                                
+                                <p><strong>Outcome:</strong> Successfully removed the email requirement as a barrier to entry, allowing the entire workforce to be onboarded securely and efficiently by their administrators.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
@@ -167,9 +327,34 @@
                 </div>                      
                 <!-- Salary Extras -->
                 <div class="space-y-4">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="text-2xl font-bold mb-2">Salary Extras</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">New design for Salary Extras, enhancing user navigation, accessibility and user experience.</p>
+                        <div class="text-base-content/80 max-w-6xl mx-auto space-y-6">
+                            <div class="text-left space-y-4">
+                                <h4 class="text-lg font-semibold">Project Overview</h4>
+                                <p>Modernising engagement through an accessible, high-performance benefits platform.</p>
+                                <p>I led the redesign of Salary Extras, a platform for managing workplace benefits. My goal was to transform a complex, text-heavy system into a clean, intuitive experience that prioritises scannability and accessibility for a diverse workforce.</p>
+
+                                <h4 class="text-lg font-semibold">The Challenge</h4>
+                                <p>The legacy platform suffered from high cognitive load and fragmented navigation. Users struggled to differentiate between benefit categories, and the interface failed to meet the modern accessibility standards required for an inclusive employee experience.</p>
+
+                                <h4 class="text-lg font-semibold">The Solution: "Benefit Discovery Simplified"</h4>
+                                <p>Following a full UX lifecycle—including user testing and rapid Figma prototyping—I delivered a modernised interface focused on efficiency.</p>
+
+                                <h4 class="text-lg font-semibold">Key UX Features:</h4>
+                                <ul class="space-y-2">
+                                    <li><strong>Streamlined Information Architecture:</strong> Re-architected the layout to prioritise high-value benefits, reducing the clicks needed to access core services.</li>
+                                    <li><strong>Card-Based Visual Hierarchy:</strong> Introduced a consistent card system and clear iconography to improve scannability and cross-platform consistency.</li>
+                                    <li><strong>WCAG Accessibility:</strong> Overhauled colour contrast and typography to ensure full compliance and inclusivity for all users.</li>
+                                    <li><strong>Responsive Refinement:</strong> Optimised UI patterns for a seamless mobile experience, catering to employees accessing benefits on the go.</li>
+                                </ul>
+
+                                <h4 class="text-lg font-semibold">Execution & Result</h4>
+                                <p><strong>Technical Collaboration:</strong> Managed the project from research to developer handover, working closely with engineers during QA to ensure a pixel-perfect build.</p>
+
+                                <p><strong>Outcome:</strong> Successfully modernised the Salary Extras experience, resulting in a more engaging, accessible, and user-friendly platform that empowers employees to manage their benefits with ease.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
@@ -177,18 +362,98 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Team UX design KPI Dashboard -->
                 <div class="space-y-4">
-                    <div class="text-center">
-                        <h3 class="text-2xl font-bold mb-2">Team UX design KPI Dashboard - Built with AI (30 min)</h3>
-                        <p class="text-base-content/80 max-w-6xl mx-auto">Built production-ready Team UX dashboard prototype in 30 minutes using Claude AI, visualizing KPIs and insights within design system constraints through iterative prompting. Reduced typical two-week Figma design phase and one-month development cycle to under an hour, demonstrating 200x efficiency improvement through AI-assisted workflows.</p>
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-2">AI-Driven UX KPI Dashboard (Proof of Concept)</h3>
+                        <div class="text-base-content/80 max-w-6xl mx-auto space-y-6">
+                            <div class="text-left space-y-4">
+                                <h4 class="text-lg font-semibold">Project Overview</h4>
+                                <p>Demonstrating 200x efficiency gains through AI-assisted design workflows.</p>
+
+                                <p>This Proof of Concept (PoC) explores how AI tooling can bypass traditional, week-long iteration cycles. Using Claude, I generated a system-compliant, interactive dashboard prototype in just 30 minutes, proving that designers can move from concept to functional logic almost instantly.</p>
+
+                                <h4 class="text-lg font-semibold">The Challenge</h4>
+                                <p>Traditional workflows—from discovery to high-fidelity Figma mocks—often span weeks. I aimed to prove that an AI-assisted "Design-to-Code" workflow could produce a sophisticated, data-driven interface that respects professional design system constraints in minutes rather than days.</p>
+
+                                <h4 class="text-lg font-semibold">The Solution: 30-Minute Rapid Prototyping</h4>
+                                <p>Using iterative prompting, I built a functional PoC that visualises KPIs while maintaining strict alignment with organisational UI patterns.</p>
+
+                                <h4 class="text-lg font-semibold">Key UX Features:</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Dynamic Visualisation:</strong> A scannable interface for tracking team performance and design-system health.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>System-Compliant UI:</strong> Prompted the AI to respect specific brand patterns, colours, and typography.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Functional Logic:</strong> Developed a prototype with real-world interaction, providing immediate feedback on data density and user flow.</p>
+                                    </div>
+                                </div>
+
+                                <h4 class="text-lg font-semibold">Efficiency & Execution</h4>
+                                <p><strong>Workflow Validation:</strong> Condensed a standard two-week design phase into a 30-minute session.</p>
+
+                                <p><strong>Bridging the Gap:</strong> Eliminated the static barrier of traditional tools by generating a code-based prototype for a more realistic "feel."</p>
+
+                                <p><strong>Outcome:</strong> Proved that AI enables designers to rapidly ideate, validate complex data sets, and communicate technical intent to stakeholders with minimal overhead.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="group">
                         <div class="w-full rounded-xl overflow-hidden shadow-lg">
                             <img src="images/ux-kpi-dashboard.png" alt="Button types and states - Design System Components showing primary, secondary, tertiary, ghost, and destructive button variants in default, hover, focused, and disabled states" class="w-full h-full object-cover" loading="lazy" />
                         </div>
                     </div>
-                        </div>                  
+                </div>
+                <!-- Brainstorming -->
+                <div class="space-y-4">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-2">Feature Workshop: Unified Bookmarking Logic</h3>
+                        <div class="text-base-content/80 max-w-6xl mx-auto space-y-6">
+                            <div class="text-left space-y-4">
+                                <h4 class="text-lg font-semibold">Project Overview</h4>
+                                <p>Designing a seamless, cross-view bookmarking system for sustainability management.</p>
+
+                                <p>I facilitated a feature workshop with the OnePlanet team to solve a complex navigational challenge. The goal was to create a unified bookmarking logic that allows users to track Actions, Outcomes, and Indicators seamlessly across Dashboard, Mind Map, and Table views.</p>
+
+                                <h4 class="text-lg font-semibold">The Challenge</h4>
+                                <p>Users manage complex data across different visual contexts, but lacked a universal way to "pin" high-priority items. This created a fragmented experience where users lost focus when switching between different views of the same data.</p>
+
+                                <h4 class="text-lg font-semibold">The Solution: Unified Cross-View Logic</h4>
+                                <p>Through collaborative logic mapping, I defined a universal bookmarking behaviour that functions as a persistent thread throughout the app.</p>
+
+                                <h4 class="text-lg font-semibold">Key UX Features:</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>Global Action Logic:</strong> A unified "Bookmark" state applying to all data types regardless of the current view.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Cross-View Persistence:</strong> Instant synchronisation between Mind Map, Table, and Dashboard views to maintain user context.</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Centralised Filtering:</strong> A dedicated "Bookmarked" toggle to allow users to instantly isolate high-priority data.</p>
+                                    </div>
+                                </div>
+
+                                <h4 class="text-lg font-semibold">Execution & Result</h4>
+                                <p><strong>Workshop Facilitation:</strong> Led the team through rapid ideation to align stakeholders on a single, scalable solution.</p>
+
+                                <p><strong>Prototyping:</strong> Translated workshop outcomes into high-fidelity Figma prototypes to validate cross-view interaction patterns.</p>
+
+                                <p><strong>Outcome:</strong> Successfully defined a robust system that reduced navigational friction and improved data retrieval speed for OnePlanet users.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="w-full rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/brainstormsketch.jpg" alt="Workshop Sketch for OnePlanet" class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+                </div>                                  
             </div>
         </div>
     </section>
