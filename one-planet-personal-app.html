@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Edwards - OnePlanet Personal App</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Tailwind CSS + DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base styles */
+        body { 
+            font-family: 'Inter', sans-serif;
+            color: #242424;
+        }
+        
+        p, li, h1, h2, h3, h4, h5, h6, a, span {
+            color: #242424;
+        }
+        
+        /* Background effects */
+        .gradient-bg { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        .glass-effect { 
+            backdrop-filter: blur(10px); 
+            background: rgba(255, 255, 255, 0.1); 
+        }
+        
+        /* Animations */
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 40px 0;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            margin: auto;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: none;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .lightbox-close:hover {
+            color: #ccc;
+        }
+        
+        .thumbnail {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(75, 47, 117, 0.8);
+            border: none;
+            color: white;
+            font-size: 36px;
+            padding: 15px 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(75, 47, 117, 1);
+        }
+
+        .lightbox-nav.prev {
+            left: 30px;
+        }
+
+        .lightbox-nav.next {
+            right: 30px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3MR892X35L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3MR892X35L');
+</script>
+<body class="bg-base-100">
+    
+    <!-- Navigation -->
+    <div class="navbar bg-base-100 shadow-lg fixed top-0 z-50">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#featuredworkflow">Featured Workflow</a></li>
+                    <li><a href="design-systems.html">Design System Portfolio</a></li>
+                    <li><a href="ux-design.html">Current UX Design</a></li>
+                    <li><a href="older-work.html">Older UX Work</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <a href="index.html" class="btn btn-ghost text-xl font-bold" alt="Richard Edwards - Go to homepage" title="Go to homepage">Richard Edwards</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="index.html#about" class="hover:text-primary">About</a></li>
+                <li><a href="index.html#experience" class="hover:text-primary">Experience</a></li>
+                <li><a href="index.html#featuredworkflow" class="hover:text-primary">Featured Workflow</a></li>
+                <li><a href="design-systems.html" class="hover:text-primary">Design System Portfolio</a></li>
+                <li><a href="ux-design.html" class="hover:text-primary">Current UX Design</a></li>
+                <li><a href="older-work.html" class="hover:text-primary">Older UX Work</a></li>
+                <li><a href="index.html#contact" class="hover:text-primary">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <a href="index.html#contact" class="btn" style="background-color: #4b2f75; color: white; border-color: #4c1d95;" onmouseover="this.style.backgroundColor='#30007C'" onmouseout="this.style.backgroundColor='#4c1d95'">Get In Touch</a>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <section class="pt-32 pb-4 bg-base-100">
+        <div class="w-full max-w-[960px] mx-auto px-4 text-center">
+            <a href="older-work.html" class="link link-hover text-primary mb-4 inline-block">← Back to Projects</a>
+            <h1 class="text-4xl font-bold">OnePlanet Personal App</h1>
+            <p class="text-lg text-base-content/80 mt-2">Designed for individuals passionate about sustainability, this app aims to foster a community dedicated to making our planet a better place for all. Drawing inspiration from social media platforms, the app enables users to create or join groups, invite and follow members, and share content related to sustainability, all guided by the One Planet Living principles.</p>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="py-16 bg-base-100">
+        <div class="w-full max-w-[960px] mx-auto px-4">
+            <!-- Image Gallery Section -->
+            <div class="mb-16">
+                <!-- Thumbnail Grid -->
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <!-- Thumbnail 1 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app101.png', 'Work Sample 1')">
+                        <img src="one-planet-personal-app/personal-app101.png" alt="Work Sample 1" />
+                    </div>
+                    
+                    <!-- Thumbnail 2 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app102.png', 'Work Sample 2')">
+                        <img src="one-planet-personal-app/personal-app102.png" alt="Work Sample 2" />
+                    </div>
+                    
+                    <!-- Thumbnail 3 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app103.png', 'Work Sample 3')">
+                        <img src="one-planet-personal-app/personal-app103.png" alt="Work Sample 3" />
+                    </div>
+                    
+                    <!-- Thumbnail 4 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app104.png', 'Work Sample 4')">
+                        <img src="one-planet-personal-app/personal-app104.png" alt="Work Sample 4" />
+                    </div>
+                    
+                    <!-- Thumbnail 5 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app105.png', 'Work Sample 5')">
+                        <img src="one-planet-personal-app/personal-app105.png" alt="Work Sample 5" />
+                    </div>
+                    
+                    <!-- Thumbnail 6 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app106.png', 'Work Sample 6')">
+                        <img src="one-planet-personal-app/personal-app106.png" alt="Work Sample 6" />
+                    </div>
+                    
+                    <!-- Thumbnail 7 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app107.png', 'Work Sample 7')">
+                        <img src="one-planet-personal-app/personal-app107.png" alt="Work Sample 7" />
+                    </div>
+                    
+                    <!-- Thumbnail 8 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app108.png', 'Work Sample 8')">
+                        <img src="one-planet-personal-app/personal-app108.png" alt="Work Sample 8" />
+                    </div>
+                    
+                    <!-- Thumbnail 9 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app109.png', 'Work Sample 9')">
+                        <img src="one-planet-personal-app/personal-app109.png" alt="Work Sample 9" />
+                    </div>
+                    
+                    <!-- Thumbnail 10 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app110.png', 'Work Sample 10')">
+                        <img src="one-planet-personal-app/personal-app110.png" alt="Work Sample 10" />
+                    </div>
+                    
+                    <!-- Thumbnail 11 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app111.png', 'Work Sample 11')">
+                        <img src="one-planet-personal-app/personal-app111.png" alt="Work Sample 11" />
+                    </div>
+                    
+                    <!-- Thumbnail 12 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app112.png', 'Work Sample 12')">
+                        <img src="one-planet-personal-app/personal-app112.png" alt="Work Sample 12" />
+                    </div>
+                    
+                    <!-- Thumbnail 13 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app113.png', 'Work Sample 13')">
+                        <img src="one-planet-personal-app/personal-app113.png" alt="Work Sample 13" />
+                    </div>
+                    
+                    <!-- Thumbnail 14 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app114.png', 'Work Sample 14')">
+                        <img src="one-planet-personal-app/personal-app114.png" alt="Work Sample 14" />
+                    </div>
+                    
+                    <!-- Thumbnail 15 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app115.png', 'Work Sample 15')">
+                        <img src="one-planet-personal-app/personal-app115.png" alt="Work Sample 15" />
+                    </div>
+                    
+                    <!-- Thumbnail 16 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app116.png', 'Work Sample 16')">
+                        <img src="one-planet-personal-app/personal-app116.png" alt="Work Sample 16" />
+                    </div>
+                    
+                    <!-- Thumbnail 17 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app117.png', 'Work Sample 17')">
+                        <img src="one-planet-personal-app/personal-app117.png" alt="Work Sample 17" />
+                    </div>
+                    
+                    <!-- Thumbnail 18 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app118.png', 'Work Sample 18')">
+                        <img src="one-planet-personal-app/personal-app118.png" alt="Work Sample 18" />
+                    </div>
+                    
+                    <!-- Thumbnail 19 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app119.png', 'Work Sample 19')">
+                        <img src="one-planet-personal-app/personal-app119.png" alt="Work Sample 19" />
+                    </div>
+                    
+                    <!-- Thumbnail 20 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app120.png', 'Work Sample 20')">
+                        <img src="one-planet-personal-app/personal-app120.png" alt="Work Sample 20" />
+                    </div>
+                    
+                    <!-- Thumbnail 21 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app121.png', 'Work Sample 21')">
+                        <img src="one-planet-personal-app/personal-app121.png" alt="Work Sample 21" />
+                    </div>
+                    
+                    <!-- Thumbnail 22 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app122.png', 'Work Sample 22')">
+                        <img src="one-planet-personal-app/personal-app122.png" alt="Work Sample 22" />
+                    </div>
+                    
+                    <!-- Thumbnail 23 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app123.png', 'Work Sample 23')">
+                        <img src="one-planet-personal-app/personal-app123.png" alt="Work Sample 23" />
+                    </div>
+                    
+                    <!-- Thumbnail 24 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app124.png', 'Work Sample 24')">
+                        <img src="one-planet-personal-app/personal-app124.png" alt="Work Sample 24" />
+                    </div>
+                    
+                    <!-- Thumbnail 25 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app125.png', 'Work Sample 25')">
+                        <img src="one-planet-personal-app/personal-app125.png" alt="Work Sample 25" />
+                    </div>
+                    
+                    <!-- Thumbnail 26 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app126.png', 'Work Sample 26')">
+                        <img src="one-planet-personal-app/personal-app126.png" alt="Work Sample 26" />
+                    </div>
+                    
+                    <!-- Thumbnail 27 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app127.png', 'Work Sample 27')">
+                        <img src="one-planet-personal-app/personal-app127.png" alt="Work Sample 27" />
+                    </div>
+                    
+                    <!-- Thumbnail 28 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app128.png', 'Work Sample 28')">
+                        <img src="one-planet-personal-app/personal-app128.png" alt="Work Sample 28" />
+                    </div>
+                    
+                    <!-- Thumbnail 29 -->
+                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-personal-app/personal-app129.png', 'Work Sample 29')">
+                        <img src="one-planet-personal-app/personal-app129.png" alt="Work Sample 29" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <button class="lightbox-nav prev" onclick="previousImage(event)">❮</button>
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="" />
+            <button class="lightbox-nav next" onclick="nextImage(event)">❯</button>
+            <div class="lightbox-counter">
+                <span id="image-counter">1 / 29</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content">
+        <div>
+            <div class="grid grid-flow-col gap-4">
+                <a href="https://www.linkedin.com/in/richardedwardssa/" target="_blank" rel="noopener noreferrer" class="link link-hover">LinkedIn</a>
+            </div>
+        </div>
+        <div>
+            <p>© 2025 Rich Edwards - DesignOps Manager & UX Designer</p>
+            <p class="text-sm opacity-70">Building better design experiences, one system at a time.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Image array for lightbox navigation
+        const images = [
+            'one-planet-personal-app/personal-app101.png',
+            'one-planet-personal-app/personal-app102.png',
+            'one-planet-personal-app/personal-app103.png',
+            'one-planet-personal-app/personal-app104.png',
+            'one-planet-personal-app/personal-app105.png',
+            'one-planet-personal-app/personal-app106.png',
+            'one-planet-personal-app/personal-app107.png',
+            'one-planet-personal-app/personal-app108.png',
+            'one-planet-personal-app/personal-app109.png',
+            'one-planet-personal-app/personal-app110.png',
+            'one-planet-personal-app/personal-app111.png',
+            'one-planet-personal-app/personal-app112.png',
+            'one-planet-personal-app/personal-app113.png',
+            'one-planet-personal-app/personal-app114.png',
+            'one-planet-personal-app/personal-app115.png',
+            'one-planet-personal-app/personal-app116.png',
+            'one-planet-personal-app/personal-app117.png',
+            'one-planet-personal-app/personal-app118.png',
+            'one-planet-personal-app/personal-app119.png',
+            'one-planet-personal-app/personal-app120.png',
+            'one-planet-personal-app/personal-app121.png',
+            'one-planet-personal-app/personal-app122.png',
+            'one-planet-personal-app/personal-app123.png',
+            'one-planet-personal-app/personal-app124.png',
+            'one-planet-personal-app/personal-app125.png',
+            'one-planet-personal-app/personal-app126.png',
+            'one-planet-personal-app/personal-app127.png',
+            'one-planet-personal-app/personal-app128.png',
+            'one-planet-personal-app/personal-app129.png'
+        ];
+        
+        let currentImageIndex = 0;
+
+        function openLightbox(imageSrc, altText) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            
+            // Find the index of the clicked image
+            currentImageIndex = images.indexOf(imageSrc);
+            
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = altText;
+            updateCounter();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function nextImage(event) {
+            event.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateLightboxImage();
+        }
+
+        function previousImage(event) {
+            event.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateLightboxImage();
+        }
+
+        function updateLightboxImage() {
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = images[currentImageIndex];
+            lightboxImage.alt = `Work Sample ${currentImageIndex + 1}`;
+            updateCounter();
+        }
+
+        function updateCounter() {
+            const counter = document.getElementById('image-counter');
+            counter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        function closeLightbox(event) {
+            if (event && event.target !== event.currentTarget) {
+                return;
+            }
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when pressing ESC key, navigate with arrow keys
+        document.addEventListener('keydown', function(event) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (event.key === 'Escape') {
+                    closeLightbox();
+                } else if (event.key === 'ArrowRight') {
+                    nextImage({ stopPropagation: () => {} });
+                } else if (event.key === 'ArrowLeft') {
+                    previousImage({ stopPropagation: () => {} });
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
