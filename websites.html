@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richard Edwards - OnePlanet Blog</title>
+    <title>Richard Edwards - Websites Project</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -47,6 +47,15 @@
             50% { background-position: 100% 50%; }
         }
         
+        /* Interactive effects */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        
         /* Lightbox styles */
         .lightbox {
             display: none;
@@ -55,7 +64,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -70,84 +79,58 @@
         .lightbox-content {
             position: relative;
             max-width: 90%;
-            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .lightbox-image {
-            max-width: 100%;
+            max-width: 90%;
             max-height: none;
             object-fit: contain;
-            display: block;
         }
         
-        .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            user-select: none;
-        }
-        
-        .lightbox-close:hover {
-            color: #ccc;
-        }
-        
-        .thumbnail {
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .thumbnail:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .lightbox-nav {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(75, 47, 117, 0.8);
-            border: none;
-            color: white;
-            font-size: 36px;
-            padding: 15px 20px;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.3s ease;
-            border-radius: 4px;
-            z-index: 1001;
-        }
-
-        .lightbox-nav:hover {
-            background: rgba(75, 47, 117, 1);
-        }
-
-        .lightbox-nav.prev {
-            left: 30px;
-        }
-
-        .lightbox-nav.next {
-            right: 30px;
-        }
-
         .lightbox-counter {
-            position: absolute;
-            bottom: -40px;
+            position: fixed;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
-            font-size: 14px;
-            white-space: nowrap;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            z-index: 1001;
+        }
+        
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: #4b2f75;
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            user-select: none;
+        }
+        
+        .nav-arrow:hover {
+            background-color: #30007C;
+        }
+        
+        .nav-arrow.prev {
+            left: 20px;
+        }
+        
+        .nav-arrow.next {
+            right: 20px;
         }
     </style>
 </head>
@@ -200,29 +183,40 @@
     </div>
 
     <!-- Header Section -->
-    <section class="pt-32 pb-4 bg-base-100">
-        <div class="w-full max-w-[960px] mx-auto px-4 text-center">
-            <a href="older-work.html" class="link link-hover text-primary mb-4 inline-block">← Back to Projects</a>
-            <h1 class="text-4xl font-bold">OnePlanet Blog</h1>
-            <p class="text-lg text-base-content/80 mt-2">Content strategy and editorial design for the platform blog</p>
-        </div>
-    </section>
-
-    <!-- Case Study Content -->
-    <section class="py-16 bg-base-100">
+    <section class="pt-32 pb-20 bg-base-100">
         <div class="w-full max-w-[960px] mx-auto px-4">
-            <!-- Image Gallery Section -->
-            <div class="mb-16">
-                <!-- Thumbnail Grid -->
-                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    <!-- Thumbnail 1 -->
-                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-blog/blog11.png', 'Work Sample 1')">
-                        <img src="one-planet-blog/blog11.png" alt="Work Sample 1" />
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold mb-4">Websites</h1>
+                <p class="text-lg text-base-content/80">
+                    Web design portfolio showcasing diverse website design projects
+                </p>
+            </div>
+
+            <!-- Image Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <div class="w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="websites/web1.png" alt="Websites - 1" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300" loading="lazy" />
                     </div>
-                    
-                    <!-- Thumbnail 2 -->
-                    <div class="thumbnail aspect-square bg-gray-200" onclick="openLightbox('one-planet-blog/blog12.png', 'Work Sample 2')">
-                        <img src="one-planet-blog/blog12.png" alt="Work Sample 2" />
+                </div>
+                <div class="group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <div class="w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="websites/web2.png" alt="Websites - 2" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300" loading="lazy" />
+                    </div>
+                </div>
+                <div class="group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <div class="w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="websites/web3.png" alt="Websites - 3" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300" loading="lazy" />
+                    </div>
+                </div>
+                <div class="group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <div class="w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="websites/web4.png" alt="Websites - 4" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300" loading="lazy" />
+                    </div>
+                </div>
+                <div class="group cursor-pointer" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <div class="w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <img src="websites/web5.png" alt="Websites - 5" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300" loading="lazy" />
                     </div>
                 </div>
             </div>
@@ -230,16 +224,13 @@
     </section>
 
     <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <button class="nav-arrow prev" onclick="previousImage(event)">❮</button>
         <div class="lightbox-content">
-            <button class="lightbox-nav prev" onclick="previousImage(event)">❮</button>
-            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-            <img id="lightbox-image" class="lightbox-image" src="" alt="" />
-            <button class="lightbox-nav next" onclick="nextImage(event)">❯</button>
-            <div class="lightbox-counter">
-                <span id="image-counter">1 / 2</span>
-            </div>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="" />
         </div>
+        <button class="nav-arrow next" onclick="nextImage(event)">❯</button>
+        <div class="lightbox-counter" id="imageCounter"></div>
     </div>
 
     <!-- Footer -->
@@ -256,88 +247,65 @@
     </footer>
 
     <script>
-        // Image array for lightbox navigation
         const images = [
-            'one-planet-blog/blog11.png',
-            'one-planet-blog/blog12.png'
+            'websites/web1.png',
+            'websites/web2.png',
+            'websites/web3.png',
+            'websites/web4.png',
+            'websites/web5.png'
         ];
         
         let currentImageIndex = 0;
-
+        
         function openLightbox(imageSrc, altText) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImage = document.getElementById('lightbox-image');
-            
-            // Find the index of the clicked image
             currentImageIndex = images.indexOf(imageSrc);
-            
-            lightboxImage.src = imageSrc;
-            lightboxImage.alt = altText;
-            updateCounter();
+            const lightbox = document.getElementById('lightbox');
             lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            updateLightboxImage();
+            document.addEventListener('keydown', handleKeydown);
         }
-
+        
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox') {
+                document.getElementById('lightbox').classList.remove('active');
+                document.removeEventListener('keydown', handleKeydown);
+            }
+        }
+        
         function nextImage(event) {
             event.stopPropagation();
             currentImageIndex = (currentImageIndex + 1) % images.length;
             updateLightboxImage();
         }
-
+        
         function previousImage(event) {
             event.stopPropagation();
             currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
             updateLightboxImage();
         }
-
+        
         function updateLightboxImage() {
-            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxImage = document.getElementById('lightboxImage');
             lightboxImage.src = images[currentImageIndex];
-            lightboxImage.alt = `Work Sample ${currentImageIndex + 1}`;
+            lightboxImage.alt = `Websites - ${currentImageIndex + 1}`;
             updateCounter();
         }
-
+        
         function updateCounter() {
-            const counter = document.getElementById('image-counter');
+            const counter = document.getElementById('imageCounter');
             counter.textContent = `${currentImageIndex + 1} / ${images.length}`;
         }
-
-        function closeLightbox(event) {
-            if (event && event.target !== event.currentTarget) {
-                return;
+        
+        function handleKeydown(event) {
+            if (event.key === 'ArrowRight') {
+                nextImage(event);
+            } else if (event.key === 'ArrowLeft') {
+                previousImage(event);
+            } else if (event.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('active');
+                document.removeEventListener('keydown', handleKeydown);
             }
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
         }
-
-        // Close lightbox when pressing ESC key, navigate with arrow keys
-        document.addEventListener('keydown', function(event) {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox.classList.contains('active')) {
-                if (event.key === 'Escape') {
-                    closeLightbox();
-                } else if (event.key === 'ArrowRight') {
-                    nextImage({ stopPropagation: () => {} });
-                } else if (event.key === 'ArrowLeft') {
-                    previousImage({ stopPropagation: () => {} });
-                }
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
     </script>
 </body>
 </html>
