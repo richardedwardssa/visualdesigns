@@ -9,7 +9,6 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     
     <!-- Tailwind CSS + DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.2/dist/full.min.css" rel="stylesheet" type="text/css" />
@@ -100,17 +99,40 @@
         .design-system-bg {
             background-color: #EDE3FF;
         }
+        
+        /* Color utilities for contact icons */
+        .icon-email { background-color: #1e40af; border-color: #1e40af; }
+        .icon-linkedin { background-color: #475569; border-color: #475569; }
+        .icon-phone { background-color: #b45309; border-color: #b45309; }
+        .icon-location { background-color: #7c2d12; border-color: #7c2d12; }
+        .icon-cv { background-color: #0369a1; border-color: #0369a1; }
+        
+        /* Availability badges */
+        .badge-permanent { background-color: #183975; color: white; border-color: #183975; }
+        .badge-remote { background-color: #57279e; color: white; border-color: #4b2f75; }
+        
+        /* Primary button styling */
+        .btn-primary-action {
+            background-color: #4b2f75;
+            color: white;
+            border-color: #4c1d95;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary-action:hover {
+            background-color: #000000;
+        }
     </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3MR892X35L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3MR892X35L');
+    </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3MR892X35L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3MR892X35L');
-</script>
 <body class="bg-base-100">
     
     <!-- Navigation -->
@@ -125,22 +147,22 @@
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow bg-base-100 rounded-box w-52 space-y-2">
                     <li><a href="#about" class="py-3">About</a></li>
                     <li><a href="#experience" class="py-3">Experience</a></li>
-                    <li><a href="#featuredworkflow" class="py-3">Featured Workflow</a></li>
-                    <li><a href="#designsystemworkflow" class="py-3">Design System Workflow</a></li>
+                    <li><a href="#designsystemworkflow" class="py-3">Design System Strategy</a></li>
+                    <li><a href="#featuredworkflow" class="py-3">Workflows</a></li>
                     <li><a href="design-systems.html" class="py-3">Design System Portfolio</a></li>
                     <li><a href="ux-design.html" class="py-3">UX Design Portfolio</a></li>
                     <li><a href="older-work.html" class="py-3">Older UX Work</a></li>
                     <li><a href="#contact" class="py-3">Contact</a></li>
                 </ul>
             </div>
-            <a href="#" class="btn btn-ghost text-xl font-bold" alt="Richard Edwards - Go to top of page" title="Go to top of page" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Richard Edwards</a>
+            <a href="#" class="btn btn-ghost text-xl font-bold" title="Richard Edwards - Go to top of page" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Richard Edwards</a>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="#about" class="hover:text-primary">About</a></li>
                 <li><a href="#experience" class="hover:text-primary">Experience</a></li>
-                <li><a href="#featuredworkflow" class="hover:text-primary">Featured Workflow</a></li>
-                <li><a href="#designsystemworkflow" class="hover:text-primary">Design System Workflow</a></li>
+                <li><a href="#designsystemworkflow" class="hover:text-primary">Design System Strategy</a></li>
+                <li><a href="#featuredworkflow" class="hover:text-primary">Workflows</a></li>
                 <li><a href="design-systems.html" class="hover:text-primary">Design System Portfolio</a></li>
                 <li><a href="ux-design.html" class="hover:text-primary">Current UX Design</a></li>
                 <li><a href="older-work.html" class="hover:text-primary">Older UX Work</a></li>
@@ -148,7 +170,7 @@
             </ul>
         </div>
         <div class="navbar-end">
-            <a href="#contact" class="btn" style="background-color: #4b2f75; color: white; border-color: #4c1d95;" onmouseover="this.style.backgroundColor='#000000'" onmouseout="this.style.backgroundColor='#4c1d95'">Get In Touch</a>
+            <a href="#contact" class="btn btn-primary-action">Get In Touch</a>
         </div>
     </div>
 
@@ -174,7 +196,7 @@
                 <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up stagger-4">
                     <a href="design-systems.html" class="btn btn-lg btn-white btn-enhanced" style="color: #4B2F75;">Design Systems Portfolio</a>
                     <a href="ux-design.html" class="btn btn-lg btn-white btn-enhanced" style="color: #4B2F75;">Current UX Design</a>
-                    <a href="#contact" class="btn btn-lg btn-outline btn-white text-white border-white btn-enhanced" onmouseover="this.style.backgroundColor='#4B2F75'; this.style.borderColor='#FFFFFF'" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='white'">Let's Connect</a>
+                    <a href="#contact" class="btn btn-lg btn-outline btn-white text-white border-white btn-enhanced">Let's Connect</a>
                 </div>
             </div>
         </div>
@@ -416,7 +438,7 @@ I specialise in building design systems that go beyond documentation to deliver 
                         </h3>
                         <p class="text-base-content/80">
                             I measure ROI by looking at the Speed-to-Market and Cost Avoidance. If we assume a team of 100 designers and engineers, and the system saves each person just 4 hours a week through component reuse, we reclaim roughly £1.3M in annual productivity. >
-However, I also track 'Redesign Avoidance.' By building accessibility and responsiveness into the 'Atomic' level of the system, we avoid the massive costs of retrofitting features later. We aren't just saving time; we are ensuring that every pound spent on development is spent on new innovation, not fixing old inconsistencies.
+                            However, I also track 'Redesign Avoidance.' By building accessibility and responsiveness into the 'Atomic' level of the system, we avoid the massive costs of retrofitting features later. We aren't just saving time; we are ensuring that every pound spent on development is spent on new innovation, not fixing old inconsistencies.
                         </p>
                     </div>
                 </div>
@@ -454,7 +476,7 @@ However, I also track 'Redesign Avoidance.' By building accessibility and respon
     <section id="featuredworkflow" class="py-20 bg-base-100">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Featured Workflow</h2>
+                <h2 class="text-4xl font-bold mb-4">Workflows</h2>
                 <p class="text-lg text-base-content/80 max-w-6xl mx-auto">
                     Selected workflows that demonstrate my approach to design operations, systems, and process optimisation
                 </p>
@@ -623,7 +645,7 @@ However, I also track 'Redesign Avoidance.' By building accessibility and respon
                         <h3 class="text-2xl font-semibold mb-6 text-center">Get In Touch</h3>
                         <div class="space-y-4">
                             <div class="flex items-center gap-4">
-                                <div class="btn btn-circle btn-sm" style="background-color: #1e40af; border-color: #1e40af;">
+                                <div class="btn btn-circle btn-sm icon-email">
                                     <svg class="w-5 h-5" fill="white" viewBox="0 0 20 20">
                                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
@@ -636,7 +658,7 @@ However, I also track 'Redesign Avoidance.' By building accessibility and respon
                             </div>
                             
                             <div class="flex items-center gap-4">
-                                <div class="btn btn-circle btn-sm" style="background-color: #475569; border-color: #475569;">
+                                <div class="btn btn-circle btn-sm icon-linkedin">
                                     <svg class="w-5 h-5" fill="white" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
                                     </svg>
@@ -648,7 +670,7 @@ However, I also track 'Redesign Avoidance.' By building accessibility and respon
                             </div>
                             
                             <div class="flex items-center gap-4">
-                                <div class="btn btn-circle btn-sm" style="background-color: #b45309; border-color: #b45309;">
+                                <div class="btn btn-circle btn-sm icon-phone">
                                     <svg class="w-5 h-5" fill="white" viewBox="0 0 20 20">
                                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                                     </svg>
@@ -660,7 +682,7 @@ However, I also track 'Redesign Avoidance.' By building accessibility and respon
                             </div>
                             
                             <div class="flex items-center gap-4">
-                                <div class="btn btn-circle btn-sm" style="background-color: #7c2d12; border-color: #7c2d12;">
+                                <div class="btn btn-circle btn-sm icon-location">
                                     <svg class="w-5 h-5" fill="white" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                                     </svg>
@@ -672,7 +694,7 @@ However, I also track 'Redesign Avoidance.' By building accessibility and respon
                             </div>
                             
                             <div class="flex items-center gap-4">
-                                <div class="btn btn-circle btn-sm" style="background-color: #0369a1; border-color: #0369a1;">
+                                <div class="btn btn-circle btn-sm icon-cv">
                                     <svg class="w-5 h-5" fill="white" viewBox="0 0 20 20">
                                         <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"></path>
                                     </svg>
@@ -690,8 +712,8 @@ However, I also track 'Redesign Avoidance.' By building accessibility and respon
                     <div class="text-center">
                         <h4 class="text-lg font-semibold mb-3">Available For</h4>
                         <div class="flex flex-wrap gap-2 justify-center">
-                            <div class="badge badge-lg" style="background-color: #183975; color: white; border-color: #183975;">Permanent Roles</div>
-                            <div class="badge badge-lg" style="background-color: #57279e; color: white; border-color: #4b2f75;">Remote</div>
+                            <div class="badge badge-lg badge-permanent">Permanent Roles</div>
+                            <div class="badge badge-lg badge-remote">Remote</div>
                         </div>
                     </div>
                 </div>
